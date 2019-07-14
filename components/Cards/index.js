@@ -16,55 +16,49 @@
 //   </div>
 // </div>
 //
-// Create a card for each of the articles and add the card to the DOM.
 
-const cards = document.querySelector('.cards-container');
-const info =
-axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
+
+  
+
+
+//card.appendChild(cardHeadLine);
+//card.appendChild(avatar);
+//card.appendChild(cardImg);
+//card.appendChild(createCard(articles))
+
+//}
+
+
+//const cards = document.querySelector('.cards-container');
+//const promise =
+//axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
+//.then(articles => {
+
+//for(let i = 0; i < articles.length; i++){
+
+//return articles[i]+ "<br>";
+ // }
+ var text ="";
+var article;
+for (article in articles) {
+  
+  var articleContainer = document.querySelector('.cards-container');
+  document.body.onload = 
+  axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
   .then(articles => {
-
-  
-  console.log(articles);
-  //articles.forEach((obj, index) => {
-   // articles.appendChild(createCard(obj, index));
- // })
-  async function createCard() {
-    let cards = document.querySelector('.cards-container');
-    for(let current of articles) {
-      try {
-        let cardStop = await axios.get(`${template_addr}${current}`);
-        cards.appendChild(createCard(obj));
-      } catch(e) { console.log(e); }
-    }
-  }
   
 
-
+  function createElement() { 
+      var card = document.createElement("div");
+      card.classList.add('card');
+      card.appendChild(articleContainer);
+      document.body.appendChild(card.article);   
+      
+  });
   
-function createCard(obj) {
-const  card = document.createElement('div');
-const cardHeadLine = document.createElement('div');
-const cardAuthor = document.createElement('div')
-const cardImgContainer = document.createElement('div')
-const cardImg = document.createElement('img');
-const cardsName = document.createElement('span');
-//append
-
-card.appendChild(cards);
-card.appendChild(cardHeadLine);
-card.appendChild(cardImg);
-card.appendChild(cardImg);
-card.appendChild(para1);
-card.appendChild(createCard(articles))
-//ClassList
-card.classList.add('card');
-cardHeadLine.classList.add('headline');
-cardAuthor.classList.add('author');
-cardImgContainer.classList.add('img-container')
-cardsName.setAttribute('span', `articles-${authorName}`);
-cardImg.src = obj.authorPhoto;
-cardHeadLine.textContent = Object.headline;
-cardAuthor.textContent = articles.authorName;
-card.textContent
-}
 })
+
+
+
+
+
