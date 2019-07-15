@@ -7,29 +7,16 @@
 //
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
-const tabs = document.querySelector('.topics');
-const template_addr =
-axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
-.then(topics=>
-    
-    
-    //tabinfo.forEach(topic => {
-       // topic
-       // .then(topics =>{
-        //    const props = obj;
-        //    const element = createTab(props);
-        //    tabs.appendChild(element);
-       // })
-       // console.log(topics)
-   //})
+var body = document.querySelector('body');
+const tabs = document.querySelector('.tabs');
+const backend_url = 'https://lambda-times-backend.herokuapp.com/topics';
+axios.get(backend_url).then(promise =>{
+  console.log(promise);
+ promise.data.topics.forEach(topics =>{
+   console.log(topics);
+   const element = document.createElement('div');
+   element.textContent = topics;
+   body.appendChild(element);
+ })
+})
 
-   async function Tab() {
-    let tabs = document.querySelector('.topics');
-    for(let current of topics) {
-      try {
-        let tabStop = await axios.get(`${template_addr}${current}`);
-        tabs.appendChild(Tab(tab));
-      } catch(e) { console.log(e); }
-    }
-  })
-  
