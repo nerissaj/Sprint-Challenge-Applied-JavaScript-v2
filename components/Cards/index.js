@@ -16,47 +16,47 @@
 //   </div>
 // </div> 
 //
+
+const articleContainer = document.querySelector('.cards-container');
 const card_url = 'https://lambda-times-backend.herokuapp.com/articles';
-axios.get(card_url).then(response =>{
+axios.get(card_url).then(promise =>{
   
- response.articles.forEach(article =>{
-   console.log(articles);
-   const articleContainer = document.querySelector('.cards-container');
- 
+ promise.data.data.articles.forEach(article =>{
+   const newCard = newCard(item)
+   cardsContainer.appendChild(cardsContainer)
+   console.log(cardsContainer)
+ })
+ })
  .catch(err =>{
+  console.log('ERROR', error) 
 
  })
- function articleCard(){
+ function articleCard(object){
    //card
-    let newCard = document.createElement('div');
-    newCard.textContent = "";
-    newCard.classList.add('card');
-    articleContainer.appendChild(newCard);
-    //header
-    let cardHeading = document.createElement('div');
-    cardHeading.classList.add('headline');
-    cardHeading.textContent=`${articles.headline};
-    article.appendChild(cardHeading);
-
-    //author
+    let card = document.createElement('div')
+    let cardHeading = document.createElement('div') 
     let cardAuthor = document.createElement('div')
-  
-    img.src = author.data.authorPhoto;
-    span.textContent = `${data.articles.authorName}`; 
-   
-  
-   
-   articleContainer.appendChild(cardHeading);
-  body.appendChild(cardHeading)
- 
+    let imageContainer = document.createElement('div')
+     let image = document.createElement('img')
+    let authorName = document.createElement('span')
 
+card.appendChild(cardHeading);
+card.appendChild(cardAuthor);
+cardAuthor.appendChild(imageContainer);
+imageContainer.appendChild(image);
+cardAuthor.appendChild(authorName);
+card.classList.add('card')
+cardHeading.classList.add('headline');
+cardAuthor.classList.add('author')
+imageContainer.classList.add('img-container')
+  
    
+    
+    cardHeading.textContent=`${object.headline}`;
 
-
- 
-  
-  
+    img.src = `${object.authorPhoto}`;
+    authorName.textContent = `${object.authorName}`; 
 
    return newCard;
   } 
- }
+ 
