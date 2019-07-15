@@ -14,55 +14,49 @@
 //     </div>
 //     <span>By {authors name}</span>
 //   </div>
-// </div>
+// </div> 
 //
-
-
+const card_url = 'https://lambda-times-backend.herokuapp.com/articles';
+axios.get(card_url).then(response =>{
   
+ response.articles.forEach(article =>{
+   console.log(articles);
+   const articleContainer = document.querySelector('.cards-container');
+ 
+ .catch(err =>{
 
+ })
+ function articleCard(){
+   //card
+    let newCard = document.createElement('div');
+    newCard.textContent = "";
+    newCard.classList.add('card');
+    articleContainer.appendChild(newCard);
+    //header
+    let cardHeading = document.createElement('div');
+    cardHeading.classList.add('headline');
+    cardHeading.textContent=`${articles.headline};
+    article.appendChild(cardHeading);
 
-//card.appendChild(cardHeadLine);
-//card.appendChild(avatar);
-//card.appendChild(cardImg);
-//card.appendChild(createCard(articles))
+    //author
+    let cardAuthor = document.createElement('div')
+  
+    img.src = author.data.authorPhoto;
+    span.textContent = `${data.articles.authorName}`; 
+   
+  
+   
+   articleContainer.appendChild(cardHeading);
+  body.appendChild(cardHeading)
+ 
 
-//}
-
+   
 
 
  
-  const articleContainer = document.querySelector('.cards-container');
-  const card_url = 'https://lambda-times-backend.herokuapp.com/articles';
-axios.get(card_url).then(promise => {
-console.log(promise);
+  
+  
 
-promise.data.data.articles.forEach(articles =>{
-  console.log(articles);
-  const card = document.createElement('div');
-  card.classList.add('card');
-  card.textContent = articles;
-  articleContainer.appendChild(card);
-  const cardHeading = document.createElement('div');
-   //cardHeading.classList.add('headline');
-  const cardAuthor = document.createElement('div');
-  var  cardImg = document.createElement('div');
-  cardImg.src = promise.data.articles.authorPhoto;
-  var cardSpan = document.createElement('span');
-  cardSpan.textContent = `By ${authorName}`
-
-  
-  
-  //card.textContent = 
- 
-  
- 
-  
-   cardImg.classList.add('img-container');
-  articleContainer.appendChild(card);
-  //body.appendChild(card);
-  //body.appendChild(cardHeading)
-
-}) 
-  }) 
-
-  
+   return newCard;
+  } 
+ }

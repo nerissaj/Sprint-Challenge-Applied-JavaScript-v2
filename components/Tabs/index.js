@@ -9,11 +9,11 @@
 //    <div class="tab">topic here</div>
 var body = document.querySelector('body');
 const tabs = document.querySelector('.tabs');
-const backend_url = 'https://lambda-times-backend.herokuapp.com/topics';
+let backend_url = 'https://lambda-times-backend.herokuapp.com/topics';
 axios.get(backend_url).then(promise =>{
-  console.log(promise);
+  //console.log(promise);
  promise.data.topics.forEach(topics =>{
-   console.log(topics);
+   //console.log(topics);
    const element = document.createElement('div');
    element.textContent = topics;
    body.appendChild(element);
