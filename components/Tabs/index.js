@@ -7,3 +7,16 @@
 //
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
+var body = document.querySelector('body');
+const tabs = document.querySelector('.tabs');
+let backend_url = 'https://lambda-times-backend.herokuapp.com/topics';
+axios.get(backend_url).then(promise =>{
+  //console.log(promise);
+ promise.data.topics.forEach(topics =>{
+   //console.log(topics);
+   const element = document.createElement('div');
+   element.textContent = topics;
+   body.appendChild(element);
+ })
+})
+
